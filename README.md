@@ -12,9 +12,6 @@ Next the function checks whether age is greater than or equal to 18 using the `r
 
 This function performs a simple calculation and uses the `assert()` statement to validate whether `age*2` results in greater than or equal to 36.If it is true,then the value is returned,else the transaction is reverted back.
 
-### Function: `revertExample(uint256 _input)`
-
-This function demonstrates the usage of the `revert()` statement. If the provided input is zero, the transaction will be reverted with a custom error message. Otherwise, the function performs a division operation.
 
 ### Smart Contract Code
 
