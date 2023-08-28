@@ -43,7 +43,7 @@ To run and interact with this program, follow these steps:
 
 1. Open the Remix Solidity IDE by visiting the Remix website: [https://remix.ethereum.org/](https://remix.ethereum.org/)
 
-2. Create a new file by clicking on the "+" icon in the left-hand sidebar and save it with a `.sol` extension (e.g., `HelloWorld.sol`).
+2. Create a new file by clicking on the "+" icon in the left-hand sidebar and save it with a `.sol` extension (e.g., `function.sol`).
 
 3. Copy and paste the above code into the file.
 
