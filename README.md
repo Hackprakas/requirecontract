@@ -3,13 +3,14 @@ This Solidity program serves as a simple "Assert Require Reevert" example, showc
 The `ErrorExamples` contract contains three functions that showcase the different error handling mechanisms.
 
 ## Description
-### Function: `setValue(uint256 _newValue)`
+### Function: `setValue(uint256 Value)`
 
-This function sets the contract's `value` state variable to a new value, but only if the new value is greater than the current value. It uses the `require()` statement to validate the condition, reverting the transaction if the condition is not met.
+This function sets the contract's `age` state variable to a new value.First it checks age is zero,if it is true,then the transaction is reverted back using the `revert()` function.
+Next the function checks whether age is greater than or equal to 18 using the `require()` function,if it true,then the age value is set,else it is reverted back.
 
-### Function: `assertExample(uint256 _input)`
+### Function: `doubleage()`
 
-This function performs a simple calculation and uses the `assert()` statement to validate internal state. It demonstrates the use of `assert()` for verifying internal consistency. However, note that using `assert()` for input validation is not recommended.
+This function performs a simple calculation and uses the `assert()` statement to validate whether `age*2` results in greater than or equal to 36.If it is true,then the value is returned,else the transaction is reverted back.
 
 ### Function: `revertExample(uint256 _input)`
 
@@ -22,24 +23,20 @@ This function demonstrates the usage of the `revert()` statement. If the provide
 pragma solidity ^0.8.0;
 
 contract ErrorExamples {
-    uint256 public value;
+    uint256 public age;
 
-    function setValue(uint256 _newValue) public {
-        require(_newValue > value, "New value must be greater than current value");
-        value = _newValue;
-    }
-
-    function assertExample(uint256 _input) public pure returns (uint256) {
-        uint256 result = _input * 2;
-        assert(result >= _input);
-        return result;
-    }
-
-    function revertExample(uint256 _input) public pure returns (uint256) {
-        if (_input == 0) {
-            revert("Input must be non-zero");
+    function setValue(uint256 Value) public {
+        if(Value==0){
+            revert("Age should not be zero");
         }
-        return 10 / _input;
+        require(Value >= 18, "your age should be greater than 18");
+        
+        age = Value;
+    }
+    function doubleage() public view returns (uint256) {
+        uint256 result=age*2;
+        assert(result >= 36);
+        return result;
     }
 }
 ```
